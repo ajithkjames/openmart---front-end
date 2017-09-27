@@ -1,0 +1,91 @@
+<!-- 
+    <div ng-hide="noresults" class="col-md-3" style="margin-top: -83px">
+    <h2 class="bg-primary text-center" style="position: fixed; width: 23%;z-index: 1000;">Advertisements</h2>
+		<ul class="widget-products">
+          <li ng-repeat="a in advertisements">
+             <a ng-click="showdetails(a)">
+             <span class="img">
+             <img class="img-thumbnail" ng-src="{{a.image}}" alt="">
+             </span>
+             <span class="product clearfix">
+             <span class="name">
+             {{a.title}}
+             </span>
+             <span class="price">
+             ${{a.price}}
+             </span>
+             </span>
+             </a>
+          </li>
+       </ul>
+     </div>
+
+     <div ng-hide="noresults" class="col-md-9" style="position: fixed;
+    margin-left: 24%;
+    margin-top: -83px;">
+    	<h2 class="bg-primary text-center">{{ad.title}}</h2>
+     <img class="img-detail" ng-src="{{ad.image}}" alt="">
+     <h3 class="bg-success ">DESCRIPTION</h3>
+     <p>{{ad.description}}</p>
+     <h3 class="bg-success ">Price</h3>
+     <p>$ {{ad.price}}</p>
+     <h3 class="bg-success ">Category</h3>
+     <p> {{ad.category}}</p>
+     <h3 class="bg-success ">Views</h3>
+     <p>{{ad.views}}</p>
+     <h3 class="bg-success ">Contact</h3>
+     <p>Name : {{ad.author.first_name}}</p> <p>Phone : {{ad.author.phone}}</p>
+     <h3 class="bg-success ">Created at</h3>
+     <p> {{ad.created_at}}</p>
+
+     </div>
+
+     <div ng-show="noresults" class="col-md-12">
+        <h1>No results</h1>
+     </div>
+ -->
+
+
+     
+
+<div >
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group" ng-hide="noresults" >
+        <div class="item  col-xs-4 col-lg-4" ng-repeat="a in advertisements">
+            <div class="thumbnail">
+                <img class="group list-group-image" ng-src="{{a.image}}" alt="" style="max-height: 200px" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        {{a.title}}</h4>
+                    <p class="group inner list-group-item-text">{{a.description}}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                ${{a.price}}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="noresults" class="col-md-12">
+        <h1>No results</h1>
+     </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>

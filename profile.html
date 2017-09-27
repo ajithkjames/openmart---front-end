@@ -1,0 +1,57 @@
+<div class="alert alert-danger alert-dismissable" ng-if="show">
+  <button href="#" class="close"  aria-label="close" ng-click="closeAlert()">&times;</button>
+  <strong>Error!</strong> <!-- {{error.non_field_errors[0]}} -->{{error.username[0]}}
+</div>
+
+<form class="form-horizontal" role="form" name="loginForm" novalidate>
+
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="firstName" name="firstName" placeholder="your Name" class="form-control" ng-model="profile.first_name" required />
+            <span class="help-block" ng-show="loginForm.firstName.$touched && loginForm.firstName.$invalid">Please enter your Name.</span>
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" id="phone" name="phone" placeholder="phone number" class="form-control" ng-model="profile.phone" required />
+            <span class="help-block" ng-show="loginForm.phone.$touched && loginForm.phone.$invalid">Please enter your Phone number.</span>
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="password" id="password" name="password" placeholder="Password" class="form-control" ng-model="profile.password" required />
+            <span ng-show="loginForm.password.$touched && loginForm.password.$error.required">Please enter Password.{{error.password[0]}}</span>
+            <span ng-if="show">{{error.password[0]}}</span>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+    <div class="form-group" >
+    <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+    <button type="submit" class="btn btn-primary form-control" ng-click="update()" >Save
+    </button>
+    </div>
+    <div class="col-sm-3">
+        </div>
+    </div>
+    
+</form>
+
+
+
+<!-- <alert type="danger" close="closeAlert()" ng-if="show" 
+       dismiss-on-timeout="100">Something happened.</alert> -->

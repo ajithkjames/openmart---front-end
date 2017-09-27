@@ -1,0 +1,91 @@
+<div class="alert alert-success alert-dismissable" ng-if="show">
+  <button href="#" class="close"  aria-label="close" ng-click="closeAlert()">&times;</button>
+  <strong>created!!</strong>
+</div>
+
+     <div class="col-md-9"  ng-if="show" >
+        <h2 class="bg-primary text-center">{{title}}</h2>
+     <img class="img-detail" ng-src="{{ad.image}}" alt="">
+     <h3 class="bg-success ">DESCRIPTION</h3>
+     <p>{{description}}</p>
+     <h3 class="bg-success ">Price</h3>
+     <p>$ {{price}}</p>
+     <h3 class="bg-success ">Category</h3>
+     <p> {{category}}</p>
+     
+     </div>
+
+<form class="form-horizontal" role="form" name="createAdForm" novalidate ng-show="visible">
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="title" ng-model="title" required />
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <textarea type="text"  placeholder="description" class="form-control" ng-model="description" required /></textarea>
+        </div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="price" ng-model="price" required />
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+
+    <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <!-- <input type="text"  placeholder="categoty" ng-model="categoty" required /> -->
+            <select class="form-control" placeholder="categoty" name="multipleSelect" id="multipleSelect" ng-model="category">
+              <option value="" selected disabled>Category</option>
+              <option value="1">Mobile</option>
+              <option value="2">laptop</option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+
+     <div class="form-group" >
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <input class="form-control" type="file" file-model="myFile"/>
+        </div>
+        <div class="col-sm-3">
+        </div>
+
+    </div>
+    <div class="form-group" >
+    <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+    <button class="form-control btn btn-primary" ng-click="createAd()">Create Ad</button>
+    </div>
+    <div class="col-sm-3">
+        </div>
+    </div>
+
+</form>
+
+
+
+<!-- <alert type="danger" close="closeAlert()" ng-if="show" 
+       dismiss-on-timeout="100">Something happened.</alert> -->

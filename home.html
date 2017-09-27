@@ -1,0 +1,126 @@
+<!-- 
+    <div ng-hide="noresults" class="col-md-3" style="margin-top: -83px">
+    <h2 class="bg-primary text-center" style="position: fixed; width: 23%;z-index: 1000;">Advertisements</h2>
+		<ul class="widget-products">
+          <li ng-repeat="a in advertisements">
+             <a ng-click="showdetails(a)">
+             <span class="img">
+             <img class="img-thumbnail" ng-src="{{a.image}}" alt="">
+             </span>
+             <span class="product clearfix">
+             <span class="name">
+             {{a.title}}
+             </span>
+             <span class="price">
+             ${{a.price}}
+             </span>
+             </span>
+             </a>
+          </li>
+       </ul>
+     </div>
+
+     <div ng-hide="noresults" class="col-md-9" style="position: fixed;
+    margin-left: 24%;
+    margin-top: -83px;">
+    	<h2 class="bg-primary text-center">{{ad.title}}</h2>
+     <img class="img-detail" ng-src="{{ad.image}}" alt="">
+     <h3 class="bg-success ">DESCRIPTION</h3>
+     <p>{{ad.description}}</p>
+     <h3 class="bg-success ">Price</h3>
+     <p>$ {{ad.price}}</p>
+     <h3 class="bg-success ">Category</h3>
+     <p> {{ad.category}}</p>
+     <h3 class="bg-success ">Views</h3>
+     <p>{{ad.views}}</p>
+     <h3 class="bg-success ">Contact</h3>
+     <p>Name : {{ad.author.first_name}}</p> <p>Phone : {{ad.author.phone}}</p>
+     <h3 class="bg-success ">Created at</h3>
+     <p> {{ad.created_at}}</p>
+
+     </div>
+
+     <div ng-show="noresults" class="col-md-12">
+        <h1>No results</h1>
+     </div>
+ -->
+
+
+     
+
+<div >
+    <div class="well well-sm">
+        <strong>Select View</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group" ng-hide="noresults" >
+         <div class="item col-md-4" ng-repeat="a in advertisements">
+              <div class="thumbnail">
+                <img ng-src="{{a.image}}" alt="" class="img-responsive" style="max-height: 200px">
+                <div class="caption">
+                  <h4 class="pull-right">${{a.price}}</h4>
+                  <h4><a href="#">{{a.title}}</a></h4>
+                  <p>{{a.description}}</p>
+                </div>
+                <div class="space-ten"></div>
+                <div class="btn-ground text-center">
+                    
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product_view" ng-click="showdetails(a)""><i class="fa fa-search"></i> View Details</button>
+                </div>
+                <div class="space-ten"></div>
+              </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade product_view" id="product_view">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                <h3 class="modal-title">{{ad.title}}</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 product_img">
+                        <img ng-src="{{ad.image}}" class="img-responsive">
+                    </div>
+                    <div class="col-md-6 product_content">
+                        <h4>Product: <span>{{ad.title}}</span></h4>
+                        <h5>Category: <span>{{ad.category}}</span></h5>
+                        <p>{{ad.description}}</p>
+                        <h5>Seller Name: <span>{{ad.author.first_name}}</span></h5>
+                        <h5>Phone: <span>{{ad.author.phone}}</span></h5>
+                        <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> {{ad.price}} </h3>
+                        <div class="space-ten"></div>
+                        <div class="btn-ground">
+                            <a href="tel:{{ad.phone}}">
+                            <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-phone"></span> Call</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div ng-show="noresults" class="col-md-12">
+        <h1>No results</h1>
+     </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>

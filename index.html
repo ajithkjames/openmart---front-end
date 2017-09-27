@@ -1,0 +1,76 @@
+<html>
+   
+   <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/style.css">
+      <title>Open Mart</title>
+   </head>
+   
+   <body ng-app = "employeeApp">
+          <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navController" style="    margin-top: 0px;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><b><span class="glyphicon glyphicon-shopping-cart"></span>Open Mart</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li ><a ng-href='/#!/new'>Create Ad</a></li>
+            <li ng-hide="authenticated"><a ng-href='/#!/login'>Login</a></li>
+            <li ng-hide="authenticated"><a ng-href='/#!/signup'>Signup</a></li>
+            <li ng-show="authenticated"><a ng-href='/#!/editprofile'>Edit Profile</a></li>
+            <li ng-show="authenticated"><a ng-href='#' ng-click='logout()'>Log Out({{profile.first_name}})</a></li>
+          </ul>
+          <div class="col-sm-3 col-md-3 pull-right" ng-show="showsearch">
+				<form class="navbar-form" role="search">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="varRoot.searchterm">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit" ng-click='search()'><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+				</div>
+				</form>
+		</div>
+        </div><!--/.nav-collapse -->
+
+      </div>
+
+    </nav>
+
+
+
+      
+        <div ng-view>
+
+    	</div>
+
+<!-- 
+      <div  ng-controller = "loginController">
+         Username: <input type = "text" ng-model = "username"><br><br>
+         Password: <input type = "password" ng-model = "password"><br>
+         
+         <button ng-click="login()">login</button><br>{{token}}{{error}}
+      </div> -->
+     
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="assets/js/ng-file-upload.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<!-- 	<script src="assets/js/ng-file-upload-shim.min.js"></script> --> 
+	
+	<script src="app/app.js"></script>
+	<script src="app/services.js"></script>
+	<script src="app/controller.js"></script>
+
+   </body>
+</html>
