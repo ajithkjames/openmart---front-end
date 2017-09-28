@@ -41,11 +41,7 @@ employeeApp.controller('signupController',[ '$scope', '$rootScope', '$http', 'Lo
          $http.post(request.url, request.data)
          .then(
              function(response){
-               $rootScope.authenticated = true;
-               $scope.token=response.data.token;
-               $scope.error="";
-               localStorage.setItem('id_token', $scope.token);
-               $location.path('/home');
+               $location.path('/login');
              }, 
              function(response){
                $scope.error=response.data;

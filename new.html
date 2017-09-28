@@ -3,7 +3,7 @@
   <strong>created!!</strong>
 </div>
 
-     <div class="col-md-9"  ng-if="show" >
+<!--      <div class="col-md-9"  ng-if="show" >
         <h2 class="bg-primary text-center">{{title}}</h2>
      <img class="img-detail" ng-src="{{ad.image}}" alt="">
      <h3 class="bg-success ">DESCRIPTION</h3>
@@ -13,79 +13,52 @@
      <h3 class="bg-success ">Category</h3>
      <p> {{category}}</p>
      
-     </div>
+     </div> -->
 
-<form class="form-horizontal" role="form" name="createAdForm" novalidate ng-show="visible">
-    <div class="form-group" >
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="title" ng-model="title" required />
-        </div>
-        <div class="col-sm-3">
-        </div>
-
-    </div>
-    <div class="form-group" >
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <textarea type="text"  placeholder="description" class="form-control" ng-model="description" required /></textarea>
-        </div>
-        <div class="col-sm-3">
-        </div>
-    </div>
-
-    <div class="form-group" >
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="price" ng-model="price" required />
-        </div>
-        <div class="col-sm-3">
-        </div>
-
-    </div>
-
-    <div class="form-group" >
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <!-- <input type="text"  placeholder="categoty" ng-model="categoty" required /> -->
-            <select class="form-control" placeholder="categoty" name="multipleSelect" id="multipleSelect" ng-model="category">
-              <option value="" selected disabled>Category</option>
-              <option value="1">Mobile</option>
-              <option value="2">laptop</option>
-            </select>
-        </div>
-        <div class="col-sm-3">
-        </div>
-
-    </div>
-
-     <div class="form-group" >
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <input class="form-control" type="file" file-model="myFile"/>
-        </div>
-        <div class="col-sm-3">
-        </div>
-
-    </div>
-    <div class="form-group" >
-    <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-    <button class="form-control btn btn-primary" ng-click="createAd()">Create Ad</button>
-    </div>
-    <div class="col-sm-3">
+<div class="product_view" id="product_view" ng-if="show">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+                <h3 class="modal-title">{{title}}</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 product_img">
+                        <img ng-src="{{ad.image}}" class="img-responsive">
+                    </div>
+                    <div class="col-md-6 product_content">
+                        <h4>Product: <span>{{title}}</span></h4>
+                        <h5>Category: <span>{{category}}</span></h5>
+                        <p>{{description}}</p>
+                        <h3 class="cost"><span class="glyphicon glyphicon-usd"></span> {{price}} </h3>
+                        <div class="space-ten"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-</form>
+    <div style="margin-top: 0px" ng-show="visible">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" ngf-src="myFile" style="border-radius: 0px;" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <input type="text" class="form-control" placeholder="title" ng-model="title" required />
+                <textarea type="text"  placeholder="description" class="form-control" ng-model="description" required /></textarea>
+                <input type="number" class="form-control" placeholder="price" ng-model="price" required />
+                <select class="form-control" placeholder="categoty" name="multipleSelect" id="multipleSelect" ng-model="category" required>
+                              <option value="" selected disabled>Category</option>
+                              <option value="1">Mobile</option>
+                              <option value="2">laptop</option>
+                            </select>
+                <input class="form-control" type="file" file-model="myFile" required />
 
 
 
-<!-- <alert type="danger" close="closeAlert()" ng-if="show" 
-       dismiss-on-timeout="100">Something happened.</alert> -->
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="createAd()">Create Ad</button>
+            </form>
+        </div><!-- /card-container -->
+    </div>
